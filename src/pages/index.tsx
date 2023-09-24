@@ -10,7 +10,7 @@ export default function Home() {
 
   // navigate to dashboard if session token is valid
   useEffect(() => {
-    if (session || true) {
+    if (session) {
       router.push('/dashboard');
     }
   }, [session, router]);

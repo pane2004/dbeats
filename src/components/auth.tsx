@@ -1,8 +1,11 @@
 import { useSession, signIn, signOut } from "next-auth/react";
+import db from "../../public/db.png";
+import React from "react";
 
 export function AuthPage() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-900">
+      <img src={db.src} alt="dB-logo" className="h-28 w-50 transition-all duration-300"/>;
       <h1 className="text-2xl text-white font-bold mb-4 text-center">dBeats</h1>
       <p className="text-gray-600 text-center mb-4">
         The Ultimate Sound Platform for DJs.
