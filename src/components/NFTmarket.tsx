@@ -1,24 +1,6 @@
+import { NFT, NFTS } from "@/constants/constants";
 import React, { useState } from "react";
-
-interface NFT {
-  title: string;
-  imageUrl: string;
-  audioUrl: string;
-}
-
-const nfts: NFT[] = [
-  {
-    title: "Artwork 1",
-    imageUrl: "https://path-to-your-image1.jpg",
-    audioUrl: "https://path-to-your-audio1.mp3",
-  },
-  {
-    title: "Artwork 2",
-    imageUrl: "https://path-to-your-image2.jpg",
-    audioUrl: "https://path-to-your-audio2.mp3",
-  },
-  // Add more hardcoded NFTs as needed
-];
+import { Heart } from "react-feather";
 
 const NFTmarket: React.FC = () => {
   const [openDropdownIndex, setOpenDropdownIndex] = useState<number | null>(
@@ -31,27 +13,31 @@ const NFTmarket: React.FC = () => {
   };
 
   return (
-    <div>
-      {nfts.map((nft, index) => (
+    <div className="w-5/6 grid grid-cols-3 gap-6 p-20 bg-gray-800">
+      {NFTS.map((nft, index) => (
         <div
           key={index}
-          style={{
-            margin: "20px",
-            padding: "20px",
-            border: "1px solid #e0e0e0",
-            borderRadius: "8px",
-          }}
+          className="p-5 border rounded-xl shadow-lg relative bg-gray-700"
         >
+          {/* NFT Image */}
           <img
             src={nft.imageUrl}
             alt={nft.title}
-            style={{ maxWidth: "300px", borderRadius: "8px" }}
+            className="max-w-full rounded-lg mb-3 bg-gray-400"
           />
-          <audio controls style={{ marginTop: "10px" }}>
+
+          {/* NFT Title */}
+          <h2 className="text-xl mb-3 line-clamp-2 text-white">{nft.title}</h2>
+
+          {/* Audio Player */}
+          <audio controls className="mb-3 w-full">
             <source src={nft.audioUrl} type="audio/mpeg" />
             Your browser does not support the audio element.
           </audio>
+
+          {/* Purchase Options */}
           <button
+            className="text-sm text-blue-500 hover:text-blue-600"
             onClick={() =>
               setOpenDropdownIndex(index === openDropdownIndex ? null : index)
             }
@@ -59,13 +45,23 @@ const NFTmarket: React.FC = () => {
             Purchase Options
           </button>
           {index === openDropdownIndex && (
-            <div style={{ marginTop: "10px" }}>
-              {/* Add more purchase options as needed */}
-              <button onClick={() => handlePurchaseClick(nft)}>
-                Buy Now for 0.5 ETH
+            <div className="mt-3">
+              <button
+                className="bg-blue-500 text-white rounded-md px-4 py-2 hover:bg-blue-600"
+                onClick={() => handlePurchaseClick(nft)}
+              >
+                Buy Now for {nft.price} ETH
               </button>
             </div>
           )}
+
+          {/* Heart icon */}
+          <button
+            className="absolute bottom-3 right-3"
+            onClick={() => console.log("hi")}
+          >
+            <Heart className="text-red-500 hover:text-red-600" size={24} />
+          </button>
         </div>
       ))}
     </div>
