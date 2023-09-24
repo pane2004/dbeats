@@ -1,5 +1,26 @@
 import React from 'react';
 
+const soundButtonStyle: React.CSSProperties = {
+    width: '100px',
+    height: '100px',
+    margin: '10px',
+    borderRadius: '50%',
+    backgroundColor: '#333',
+    color: '#fff',
+    border: 'none',
+    cursor: 'pointer'
+};
+
+const soundboardStyle: React.CSSProperties = {
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: '20px',
+    backgroundColor: '#111',
+    borderRadius: '10px'
+};
+
 interface SoundButtonProps {
     url: string;
     label: string;
@@ -12,7 +33,7 @@ const SoundButton: React.FC<SoundButtonProps> = ({ url, label }) => {
     };
 
     return (
-        <button onClick={playSound} className="sound-button">
+        <button onClick={playSound} style={soundButtonStyle} className="sound-button">
             {label}
         </button>
     );
@@ -26,7 +47,7 @@ const SoundBoard: React.FC = () => {
     ];
 
     return (
-        <div className="soundboard">
+        <div style={soundboardStyle} className="soundboard">
             {sounds.map((sound, index) => (
                 <SoundButton key={index} url={sound.url} label={sound.label} />
             ))}
