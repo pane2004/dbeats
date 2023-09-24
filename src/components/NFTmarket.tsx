@@ -20,7 +20,7 @@ const nfts: NFT[] = [
     // Add more hardcoded NFTs as needed
 ];
 
-const NFTDisplay: React.FC = () => {
+const NFTmarket: React.FC = () => {
     const [openDropdownIndex, setOpenDropdownIndex] = useState<number | null>(null);
 
     const handlePurchaseClick = (nft: NFT) => {
@@ -52,4 +52,4 @@ const NFTDisplay: React.FC = () => {
     );
 };
 
-export default NFTDisplay;
+export default NFTmarket;
