@@ -18,7 +18,7 @@ const SoundButton: React.FC<SoundButtonProps> = ({ url, label }) => {
     );
 };
 
-const Soundboard: React.FC = () => {
+const SoundBoard: React.FC = () => {
     const sounds = [
         { url: 'https://path-to-sound1.mp3', label: 'Sound 1' },
         { url: 'https://path-to-sound2.mp3', label: 'Sound 2' },
@@ -34,4 +34,4 @@ const Soundboard: React.FC = () => {
     );
 };
 
-export default Soundboard;
+export default SoundBoard;

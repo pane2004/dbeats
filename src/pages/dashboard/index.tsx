@@ -4,6 +4,7 @@ import { Home, ShoppingCart, Music, LogOut, Settings, Feather } from "react-feat
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { Menu } from "@/components/menu";
+import NFTDisplay from "@/components/NFTDisplay";
 
 export default function Dashboard() {
   const { data: session } = useSession();
@@ -15,7 +16,7 @@ export default function Dashboard() {
     <div className="min-h-screen flex">
       {/* Sidebar */}
       <Menu/>
-
+      <NFTDisplay />
       {/* Main Content */}
       <div className="w-5/6 bg-gray-800 p-6">
         {/* Here you can include the components or content for the Dashboard, Marketplace, Soundboard */}
@@ -36,5 +37,7 @@ export default function Dashboard() {
         </div>
       </div>
     </div>
+
+    
   );
 }
