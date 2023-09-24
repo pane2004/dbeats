@@ -21,12 +21,12 @@ export function CommunityPosts() {
         {data && Array.isArray(data) && (
           <div className="container mx-auto mt-10 grid grid-cols-3 gap-8 p-10">
             {data.map((item, index) => (
-              <div key={index} className="bg-white p-4 rounded-xl shadow-lg">
+              <div key={index} className="bg-gray-700 p-4 rounded-xl shadow-lg text-white">
                 <div className="mt-4 px-6">
                   <h2 className="text-2xl font-semibold">
                     {item.profile.name}
                   </h2>
-                  <p className="text-gray-500">@{item.profile.handle}</p>
+                  <p className="text-gray-400">@{item.profile.handle}</p>
                   <p className="mt-2">{item.profile.bio}</p>
 
                   <div className="mt-4">
