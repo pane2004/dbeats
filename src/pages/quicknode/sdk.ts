@@ -11,7 +11,7 @@ const core = new Core({
 
 core.client
     .qn_fetchNFTsByCollection({
-      collection: "0x1A92f7381B9F03921564a437210bB9396471050C",
+      collection: "0x95F1819B6a1DEf7b9e55603986c4999495d7b267",
       perPage: 100,
     })
     .then((res:any) => console.log(res));
