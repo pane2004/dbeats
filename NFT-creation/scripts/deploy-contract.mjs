@@ -13,14 +13,16 @@ async function deploycontract() {
    }
 
 export async function deployContract(){
-  try{
-    await deploycontract();
-    console.log("Asset contract deployed successfully!");
-    await mintNFT();
-  }catch(error){
+  deploycontract()
+  .then(() => {
+    console.log("Asset stored successfully!");
+    // Maybe set some state here to notify the user of success
+})
+.catch((error) => {
     console.error(error);
-  }
-
+    // Handle the error gracefully. For example, show an error message to the user.
+});
+mintNFT();
 }
    
    
