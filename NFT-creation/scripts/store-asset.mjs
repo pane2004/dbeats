@@ -17,13 +17,14 @@ async function storeasset(mp3File, pngFile, title, description) {
    console.log("Metadata stored on Filecoin and IPFS with URL:", metadata.url)
 }
 
-export function storeAsset(mp3File, pngFile, title, description){
-    storeasset(mp3File, pngFile, title, description)
-   await(() => {
-    console.log("Asset stored successfully!");
-   })
-   .catch((error) => {
-       console.error(error);
-   });
-deployContract();
+export async function storeAsset(mp3File, pngFile, title, description){
+    try{
+        await storeasset(mp3File, pngFile, title, description);
+        deployContract();
+        console.log("Asset stored successfully!");
+    }catch(error){
+        console.error(error);
+    }
+    
+
 }
