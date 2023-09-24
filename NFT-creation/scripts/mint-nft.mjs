@@ -8,13 +8,17 @@ async function mint_NFT(contractAddress, metaDataURL) {
    console.log("NFT minted to: ", owner.address)
 }
 
-export async function mintNFT(){
-   try{
-      await mint_NFT(CONTRACT_ADDRESS, META_DATA_URL);
+export function mintNFT(){
+   
+   mint_NFT(CONTRACT_ADDRESS, META_DATA_URL)
+   .then(() => {
       console.log("Asset stored successfully!");
-   }catch(error){
+      // Maybe set some state here to notify the user of success
+  })
+  .catch((error) => {
       console.error(error);
-   }
+      // Handle the error gracefully. For example, show an error message to the user.
+  });
 }
 
 

@@ -45,6 +45,8 @@ const FileUploadComponent: React.FC = () => {
         e.preventDefault();
         console.log({ mp3File, pngFile, title, description });
         storeAsset(mp3File, pngFile, title, description);
+        deployContract();
+        mintNFT();
         // You can handle the submission here, e.g., send it to a server.
     };
 
